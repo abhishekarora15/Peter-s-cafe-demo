@@ -1,0 +1,113 @@
+/* Peter's Cafe — styles.css
+   Mobile-first, modern minimal luxury
+*/
+
+:root{
+  --espresso: #2b160d;
+  --cream: #f7efe6;
+  --soft-black: #111111;
+  --muted-gold: #c9a76b;
+  --accent: #7d5a3c;
+  --max-width: 1100px;
+  --radius: 10px;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  color:var(--soft-black);
+  background:var(--cream);
+  -webkit-font-smoothing:antialiased;
+}
+
+.container{max-width:var(--max-width);margin:0 auto;padding:0 1rem}
+
+.skip-link{position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden}
+.skip-link:focus{left:1rem;top:1rem;width:auto;height:auto;background:#fff;padding:8px;border-radius:6px;z-index:999}
+
+/* Header */
+.site-header{position:sticky;top:0;z-index:60;background:transparent;transition:all .28s ease;padding:1rem 0}
+.site-header.scrolled{background:rgba(255,255,255,0.98);box-shadow:0 6px 18px rgba(0,0,0,0.06);backdrop-filter:saturate(120%) blur(4px)}
+.header-inner{display:flex;align-items:center;gap:1rem}
+.brand{font-weight:700;font-family:'Playfair Display', serif;color:var(--espresso);text-decoration:none}
+.brand-sub{display:block;font-size:.8rem;color:var(--muted-gold);font-weight:400}
+.nav{margin-left:auto}
+.nav ul{display:flex;gap:1rem;list-style:none;padding:0;margin:0}
+.nav a{text-decoration:none;color:inherit;font-weight:600}
+.actions{display:flex;gap:.5rem;align-items:center;margin-left:1rem}
+.btn{border-radius:999px;padding:.6rem 1rem;font-weight:600;text-decoration:none;display:inline-block}
+.btn-primary{background:var(--espresso);color:var(--cream)}
+.btn-outline{border:1px solid rgba(0,0,0,0.08);background:transparent;color:var(--soft-black)}
+.btn-ghost{background:transparent;border:1px solid transparent;color:var(--espresso)}
+.btn-cta{background:linear-gradient(90deg,var(--espresso),#3c2116);color:var(--cream);box-shadow:0 6px 22px rgba(43,22,13,0.18)}
+
+/* Hero */
+.hero{min-height:80vh;display:grid;place-items:center;position:relative;margin-top:0;padding:4rem 0}
+.hero-bg{position:absolute;inset:0;background-image:
+  linear-gradient(180deg, rgba(19,10,6,0.25), rgba(19,10,6,0.45)),
+  url('https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?auto=format&fit=crop&w=1600&q=80');
+  background-size:cover;background-position:center;filter:contrast(1.02) saturate(.95);
+}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(0deg, rgba(0,0,0,0.06), rgba(255,255,255,0.02));mix-blend-mode:multiply}
+.hero-content{position:relative;color:var(--cream);text-align:center;z-index:2;padding:2rem}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,4vw,3.2rem);margin:0 0 .5rem}
+.hero-sub{margin:0 0 1.2rem;font-weight:300}
+.hero-ctas{display:flex;gap:.8rem;justify-content:center}
+.hero-trust{display:flex;gap:1rem;justify-content:center;margin-top:1.2rem;list-style:none;padding:0}
+.hero .rating{font-weight:700}
+
+/* Sections */
+.section-title{font-family:'Playfair Display',serif;font-size:1.5rem;margin:1.5rem 0 .25rem}
+.section-sub{color:#4b4b4b;margin-bottom:1rem}
+
+.about-inner{display:grid;grid-template-columns:1fr;gap:1rem;align-items:center}
+.about-image img{width:100%;border-radius:var(--radius);box-shadow:0 8px 30px rgba(11,7,6,0.15)}
+.about-text h2{margin-top:0}
+.tone{font-style:italic;color:#3d3d3d}
+
+.menu-grid{display:grid;grid-template-columns:1fr;gap:1rem}
+.menu-col h3{font-family:'Playfair Display',serif;margin-bottom:.5rem}
+.menu-col ul{list-style:none;padding:0;margin:0}
+.menu-col li{display:flex;justify-content:space-between;padding:.6rem 0;border-bottom:1px dashed rgba(17,17,17,0.04)}
+.menu-col .highlight{background:linear-gradient(90deg, rgba(201,167,107,0.06), transparent);padding:.5rem;border-radius:8px}
+
+.cta-note{margin-top:1rem;font-style:italic}
+
+.review-cards{display:flex;gap:1rem;overflow:auto;padding-bottom:1rem}
+.review{min-width:220px;background:#fff;padding:1rem;border-radius:12px;box-shadow:0 8px 30px rgba(11,7,6,0.06)}
+.review cite{display:block;margin-top:.75rem;font-size:.9rem;color:#6b6b6b}
+
+.visit-grid{display:grid;grid-template-columns:1fr;gap:1rem}
+.visit-map iframe{width:100%;height:220px;border:0;border-radius:8px}
+.visit-actions{display:flex;gap:.6rem;margin-top:.6rem}
+
+.instagram .ig-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem}
+.instagram img{width:100%;height:100%;object-fit:cover;border-radius:8px}
+
+.site-footer{padding:2rem 0;background:linear-gradient(180deg,var(--cream),#efe7dd)}
+.footer-inner{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between}
+.muted{color:#6b6b6b}
+
+/* Responsive */
+@media(min-width:700px){
+  .about-inner{grid-template-columns:1fr 420px;gap:2rem}
+  .menu-grid{grid-template-columns:repeat(3,1fr)}
+  .visit-grid{grid-template-columns:1fr 420px}
+  .hero{min-height:88vh}
+}
+
+@media(min-width:1000px){
+  .header-inner{padding:0 1rem}
+  .btn{padding:.7rem 1.1rem}
+}
+
+/* Subtle grain texture */
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.04;background-image:linear-gradient(transparent,rgba(0,0,0,0.01)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160"><rect width="160" height="160" fill="none"/><g fill="rgba(0,0,0,0.03)"><circle cx="20" cy="20" r="1"/><circle cx="80" cy="20" r="1"/><circle cx="140" cy="20" r="1"/><circle cx="20" cy="80" r="1"/><circle cx="80" cy="80" r="1"/><circle cx="140" cy="80" r="1"/><circle cx="20" cy="140" r="1"/><circle cx="80" cy="140" r="1"/><circle cx="140" cy="140" r="1"/></g></svg>');}
+
+/* Small tweaks for focus and accessibility */
+a:focus{outline:3px solid var(--muted-gold);outline-offset:3px}
+
+/* Utility */
+.text-center{text-align:center}
